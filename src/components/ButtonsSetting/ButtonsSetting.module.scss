@@ -1,43 +1,13 @@
-@mixin svg {
-  svg {
-    font-size: 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(31, 31, 31);
-  }
-}
-
-@mixin btn {
-  cursor: pointer;
-  position: relative;
-  width: 50px;
-  height: 50px;
-  border: none;
-  border-radius: 50%;
-  padding: 10px;
-  background-color: #d8dfbb;
-  &:active {
-    background-color: rgba(216, 223, 187, 0.8);
-  }
-  &:hover {
-    opacity: 0.8;
-  }
-  @include svg;
-}
+@import '../../index.scss';
 
 .btnSetting {
   display: flex;
   justify-content: space-between;
   margin-top: 25px;
-  &__reload {
-    @include btn;
+  &__settings{
+    margin-top: 15px;
   }
-  &__pause {
-    @include btn;
-  }
-  &__play {
-    @include btn;
+  .btn {
+    @include btn-circle;
   }
 }

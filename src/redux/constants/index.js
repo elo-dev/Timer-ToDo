@@ -1,0 +1,3 @@
+export const IS_PLAYING = 'IS_PLAYING'
+export const TIMER_COMPLETED = 'TIMER_COMPLETED'
+export const DURATION = 'DURATION'

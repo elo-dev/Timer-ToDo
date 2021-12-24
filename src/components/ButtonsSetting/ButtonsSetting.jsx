@@ -2,17 +2,20 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import style from './ButtonsSetting.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IS_PLAYING } from '../../redux/constants/index'
+import cn from 'classnames'
 
-export const ButtonsSetting = ({ setKey }) => {
+export const ButtonsSetting = ({ setKey, openModal }) => {
+
   const dispatch = useDispatch()
-  const { pause } = useSelector((state) => state.timerReducer)
+  const { isPlaying } = useSelector((state) => state.timerReducer)
 
   const playTimer = () => {
-    dispatch({ type: 'PAUSE', payload: true })
+    dispatch({ type: IS_PLAYING, payload: true })
   }
 
   const pauseTimer = () => {
-    dispatch({ type: 'PAUSE', payload: false })
+    dispatch({ type: IS_PLAYING, payload: false })
   }
 
   const reloadTimer = () => {
@@ -22,15 +25,18 @@ export const ButtonsSetting = ({ setKey }) => {
 
   return (
     <div className={style.btnSetting}>
-      <button className={style.btnSetting__reload} onClick={reloadTimer}>
+      <button className={cn(style.btnSetting__reload, style.btn)} onClick={reloadTimer}>
         <FontAwesomeIcon icon="redo" />
       </button>
-      {pause ? (
-        <button className={style.btnSetting__pause} onClick={pauseTimer}>
+      <button className={cn(style.btnSetting__settings, style.btn)} onClick={openModal}>
+        <FontAwesomeIcon icon='cog' />
+      </button>
+      {isPlaying ? (
+        <button className={cn(style.btnSetting__pause, style.btn)} onClick={pauseTimer}>
           <FontAwesomeIcon icon="pause" />
         </button>
       ) : (
-        <button className={style.btnSetting__play} onClick={playTimer}>
+        <button className={cn(style.btnSetting__play, style.btn)} onClick={playTimer}>
           <FontAwesomeIcon icon="play" />
         </button>
       )}

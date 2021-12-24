@@ -1,0 +1,57 @@
+@import '../../index.scss';
+
+.modalContent {
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    .btn {
+      @include btn-circle;
+    }
+  }
+  &__title {
+    color: $main-color;
+  }
+  &__body {
+    .minutes {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 230px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      &__label {
+        font-size: 18px;
+        color: $main-color;
+      }
+      &__input {
+        @include input;
+      }
+    }
+    .seconds {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 230px;
+      margin-bottom: 20px;
+      &__label {
+        font-size: 18px;
+        color: $main-color;
+      }
+      &__input {
+        @include input;
+      }
+    }
+    .btn{
+      @include btn;
+    }
+  }
+}
+
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
