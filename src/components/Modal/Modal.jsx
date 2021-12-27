@@ -55,58 +55,56 @@ export const SettingModal = ({ modalIsOpen, closeModal }) => {
   }
 
   return (
-    <div>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        overlayClassName={style.modal__overlay}
-        style={customStyles}
-      >
-        <div className={style.modalContent}>
-          <div className={style.modalContent__header}>
-            <button
-              className={cn(style.modalContent__closeBtn, style.btn)}
-              onClick={closeModal}
-            >
-              <FontAwesomeIcon icon="times" />
-            </button>
-          </div>
-          <h1 className={style.modalContent__title}>Пользовательский таймер</h1>
-          <div className={style.modalContent__body}>
-            <form>
-              <div className={style.minutes}>
-                <label className={style.minutes__label} htmlFor="min">
-                  Минуты
-                </label>
-                <input
-                  type="text"
-                  id="min"
-                  className={style.minutes__input}
-                  value={min}
-                  pattern="[0-9]*"
-                  onChange={setMinutes}
-                />
-              </div>
-              <div className={style.seconds}>
-                <label className={style.seconds__label} htmlFor="sec">
-                  Секунды
-                </label>
-                <input
-                  type="text"
-                  id="sec"
-                  className={style.seconds__input}
-                  value={sec}
-                  pattern="[0-9]*"
-                  onChange={setSeconds}
-                />
-              </div>
-              <button className={style.btn} onClick={submitTime}>
-                Сохранить
-              </button>
-            </form>
-          </div>
+    <Modal
+      isOpen={modalIsOpen}
+      onRequestClose={closeModal}
+      overlayClassName={style.modal__overlay}
+      style={customStyles}
+    >
+      <div className={style.modalContent}>
+        <div className={style.modalContent__header}>
+          <button
+            className={cn(style.modalContent__closeBtn, style.btn)}
+            onClick={closeModal}
+          >
+            <FontAwesomeIcon icon="times" />
+          </button>
         </div>
-      </Modal>
-    </div>
+        <h1 className={style.modalContent__title}>Пользовательский таймер</h1>
+        <div className={style.modalContent__body}>
+          <form>
+            <div className={style.minutes}>
+              <label className={style.minutes__label} htmlFor="min">
+                Минуты
+              </label>
+              <input
+                type="text"
+                id="min"
+                className={style.minutes__input}
+                value={min}
+                pattern="[0-9]*"
+                onChange={setMinutes}
+              />
+            </div>
+            <div className={style.seconds}>
+              <label className={style.seconds__label} htmlFor="sec">
+                Секунды
+              </label>
+              <input
+                type="text"
+                id="sec"
+                className={style.seconds__input}
+                value={sec}
+                pattern="[0-9]*"
+                onChange={setSeconds}
+              />
+            </div>
+            <button className={style.btn} onClick={submitTime}>
+              Сохранить
+            </button>
+          </form>
+        </div>
+      </div>
+    </Modal>
   )
 }

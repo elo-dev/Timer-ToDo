@@ -3,7 +3,6 @@ import { DURATION, IS_PLAYING, TIMER_COMPLETED } from '../constants/index'
 const initialState = {
   duration: 60,
   isPlaying: false,
-  stop: false,
   timerCompleted: false,
 }
 

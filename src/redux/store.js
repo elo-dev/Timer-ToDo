@@ -1,8 +1,10 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers, createStore } from 'redux'
 import timerReducer from './reducers/timerReducer'
+import todoReducer from './reducers/todoReducer'
 
 const rootReducer = combineReducers({
-    timerReducer
+  timerReducer,
+  todoReducer,
 })
 
 const store = createStore(rootReducer)

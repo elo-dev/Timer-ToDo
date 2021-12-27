@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import style from './Timer.module.scss'
 import { IS_PLAYING, TIMER_COMPLETED } from '../../redux/constants'
+import { ButtonsSetting } from '../ButtonsSetting/ButtonsSetting'
 
-export const Timer = ({ keyTimer, renderTime, setKey }) => {
+export const Timer = ({ openModal }) => {
+  const [key, setKey] = useState(0)
   const { isPlaying, timerCompleted, duration } = useSelector(
     (state) => state.timerReducer
   )
@@ -27,10 +29,25 @@ export const Timer = ({ keyTimer, renderTime, setKey }) => {
     setKey((prevKey) => prevKey + 1)
   }, [duration])
 
+  const renderTime = ({ remainingTime }) => {
+    if (remainingTime === 0) {
+      return <p className={style.completeTimer}>Выполнено</p>
+    }
+    const minutes = Math.floor(remainingTime / 60)
+    const seconds = remainingTime % 60
+
+    return (
+      <p className={style.timeCount}>
+        {minutes >= 10 ? minutes : `0${minutes}`} :{' '}
+        {seconds >= 10 ? seconds : `0${seconds}`}
+      </p>
+    )
+  }
+
   return (
     <div className={style.timer}>
       <CountdownCircleTimer
-        key={keyTimer}
+        key={key}
         isPlaying={isPlaying}
         duration={duration}
         trailColor={'#d8dfbb'}
@@ -43,6 +60,7 @@ export const Timer = ({ keyTimer, renderTime, setKey }) => {
       >
         {renderTime}
       </CountdownCircleTimer>
+      <ButtonsSetting setKey={setKey} openModal={openModal} />
     </div>
   )
 }

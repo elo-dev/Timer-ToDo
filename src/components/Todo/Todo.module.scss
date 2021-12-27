@@ -1,0 +1,61 @@
+@import '../../index.scss';
+
+.todo {
+  margin-top: 100px;
+  &__container {
+    .input__container {
+      .input {
+        width: 100%;
+        padding: 10px 15px !important;
+        font-size: 15px;
+        @include input;
+      }
+    }
+    .list__container {
+      margin-top: 5px;
+      margin-bottom: 20px;
+      .list__footer{
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px !important;
+  background-color: $btn-color;
+  @include input;
+  &__title {
+    display: flex;
+    align-items: center;
+    .text {
+      margin-left: 10px;
+      font-size: 20px;
+    }
+  }
+  &__btnDelete {
+    background-color: $main-color !important;
+    @include btn;
+  }
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .taskCount{
+    color: $btn-color;
+  }
+  .filter{
+    display: flex;
+    &__btn{
+      @include btn;
+      &:not(:last-child){
+        margin-right: 10px;
+      }
+    }
+  }
+}
