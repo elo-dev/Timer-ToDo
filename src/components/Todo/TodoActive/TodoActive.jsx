@@ -4,6 +4,7 @@ import cn from 'classnames'
 import style from '../Todo.module.scss'
 
 export const TodoActive = ({ taskList, completedTask, deleteTask }) => {
+  console.log(taskList);
   return (
     <ul className={style.list}>
       {taskList.map(({ id, task, checked }) => (

@@ -3,3 +3,4 @@ export const TIMER_COMPLETED = 'TIMER_COMPLETED'
 export const DURATION = 'DURATION'
 
 export const TASK_COMPLETED = 'TASK_COMPLETED'
+export const REMOVE_TASK = 'REMOVE_TASK'

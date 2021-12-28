@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import style from './Todo.module.scss'
 import cn from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
-import { TASK_COMPLETED } from '../../redux/constants'
+import { REMOVE_TASK, TASK_COMPLETED } from '../../redux/constants'
 import { TodoActive } from './TodoActive/TodoActive'
 import { TodoCompleted } from './TodoCompleted/TodoCompleted'
 
@@ -62,6 +62,17 @@ export const Todo = () => {
     setTaskList(newList)
   }
 
+  const deteleCompletedTask = (taskId) => {
+    const newList = taskCompleted.filter((item) => taskId !== item.id)
+    dispatch({ type: REMOVE_TASK, payload: newList })
+  }
+
+  const returnActive = (taskId) => {
+    const returnedItem = taskCompleted.filter((item) => taskId === item.id)
+    setTaskList([...returnedItem, ...taskList])
+    deteleCompletedTask(taskId)
+  }
+
   const Filtered = () => {
     switch (taskFilter) {
       case 'Active':
@@ -75,9 +86,9 @@ export const Todo = () => {
       case 'Completed':
         return (
           <TodoCompleted
-            deleteTask={deleteTask}
-            completedTask={completedTask}
+            deteleCompletedTask={deteleCompletedTask}
             taskCompleted={taskCompleted}
+            returnActive={returnActive}
           />
         )
       default:
