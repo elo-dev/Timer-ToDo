@@ -4,6 +4,7 @@ import './icons/index'
 import { Timer } from './components/Timer/Timer'
 import { SettingModal } from './components/Modal/Modal'
 import { Todo } from './components/Todo/Todo'
+import { CalendarMeeting } from './components/Calendar/Calendar'
 
 function App() {
   const [modalIsOpen, setIsOpen] = useState(false)
@@ -21,6 +22,7 @@ function App() {
         <SettingModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
         <Timer openModal={openModal} />
         <Todo />
+        <CalendarMeeting />
       </div>
     </div>
   )

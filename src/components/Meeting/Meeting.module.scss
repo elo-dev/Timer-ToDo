@@ -1,0 +1,14 @@
+@import '../../index.scss';
+
+.meeting__container {
+  display: flex;
+  justify-content: space-between;
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  @include btn;
+  &__date {
+  }
+  &__time {
+  }
+}
