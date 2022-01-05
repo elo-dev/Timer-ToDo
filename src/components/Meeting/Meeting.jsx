@@ -5,7 +5,7 @@ export const Meeting = ({ dates }) => {
   return (
     <>
       {dates.map(({ day, month: { number }, year, hour, minute }) => (
-        <div className={style.meeting__container} key={minute + hour + year}>
+        <div className={style.meeting__container} key={Math.random()}>
           <p className={style.meeting__date}>
             {day < 10 ? `0${day}` : day}:{number < 10 ? `0${number}` : number}:
             {year}

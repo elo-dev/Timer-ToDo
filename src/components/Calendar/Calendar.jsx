@@ -6,6 +6,8 @@ import { Calendar } from 'react-multi-date-picker'
 import TimePicker from 'react-multi-date-picker/plugins/time_picker'
 import DatePanel from 'react-multi-date-picker/plugins/date_panel'
 import { useEffect } from 'react'
+import instance from '../../api/instance'
+// import { noteRef } from '../../base'
 
 export const CalendarMeeting = () => {
   const [values, setValues] = useState([])
@@ -18,6 +20,10 @@ export const CalendarMeeting = () => {
   const reverseArr = () => {
     const reverseArr = values.reverse()
     setMeetingDate(reverseArr)
+    // noteRef.push('dima')
+    // instance.post('/notes.json',{
+      // date: rev 
+    // })
   }
 
   return (
